@@ -1,0 +1,70 @@
+/* Calculate expressions using variables from your student ID number and the
+ * the number of letters in your last name
+ */
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+   //Foothill College Student ID = 20079032, Last name = Agasatya (8 words)
+   int myId, numLet,intResult;
+   double doubleResult;
+   myId = 20079032;
+   numLet = 8;
+
+   cout << "My family name is Agasatya" << endl;
+   cout << "My Foothill College Student ID is 20079032" << endl;
+   cout << "The number of characters in my last name is 8" << endl << endl;
+
+   //First Expression
+   intResult = myId % 17;
+   cout << "Expression #1 : "<< myId << " % " << "17 = "
+   << intResult << endl << endl;
+
+   //Second Expression
+   intResult = (numLet + 17) % 11;
+   cout << "Expression #2 : " << "(" << numLet << " + 17) % 11 = "
+   << intResult << endl << endl;
+
+   //Third Expression
+   doubleResult = myId / ((double)numLet + 800);
+   cout << "Expression #3 : " << myId << " / " << "(" << numLet << " + 800) = "
+   << doubleResult << endl << endl;
+
+   //Fourth Expression
+   intResult = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8;
+   cout << "Expression #4 : " << "1 + 2 + 3 + 4 + ... + " << numLet << " = "
+   << intResult << endl << endl;
+
+   //Fifth Expression
+   doubleResult = 15000 / (80 + (myId - 123456) /
+   (((double)numLet + 20) * (numLet + 20)));
+   cout << "Expression #5 : " << "15000 / (80 + ((" << myId << " - 123456) / \n(("
+   << numLet << " + 20) * (" << numLet << " + 20))) = " << doubleResult << endl
+   << endl;
+
+   return (0);
+}
+
+/*------------------------------paste of run------------------------------------
+
+My family name is Agasatya
+My Foothill College Student ID is 20079032
+The number of characters in my last name is 8
+
+Expression #1 : 20079032 % 17 = 9
+
+Expression #2 : (8 + 17) % 11 = 3
+
+Expression #3 : 20079032 / (8 + 800) = 24850.3
+
+Expression #4 : 1 + 2 + 3 + 4 + ... + 8 = 36
+
+Expression #5 : 15000 / (80 + ((20079032 - 123456) / 
+((8 + 20) * (8 + 20))) = 0.587463
+
+Program ended with exit code: 0
+
+--------------------------------end of run------------------------------------*/

@@ -1,0 +1,347 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+
+using namespace std;
+
+int main()
+{
+   // declare constants for constants
+   // food #1 constants
+   const string FOOD_1_NAME = "broccoli";
+   const int FOOD_1_CALORIES_P100G = 34; // in calories
+   const double FOOD_1_DIETARY_FIBER_P100G = 2.6; // in grams
+   const int FOOD_1_SUGARS_P100G = 2; // in grams
+   const int FOOD_1_PROTEIN_P100G = 3; // in grams
+
+   // food #2 constants
+   const string FOOD_2_NAME = "garlic";
+   const int FOOD_2_CALORIES_P100G = 149; // in calories
+   const double FOOD_2_DIETARY_FIBER_P100G = 2.1; // in grams
+   const int FOOD_2_SUGARS_P100G = 1; // in grams
+   const int FOOD_2_PROTEIN_P100G = 6; // in grams
+
+   // food #3 constants
+   const string FOOD_3_NAME = "chicken meat";
+   const int FOOD_3_CALORIES_P100G = 203; // in calories
+   const int FOOD_3_DIETARY_FIBER_P100G = 0; // in grams
+   const int FOOD_3_SUGARS_P100G = 0; // in grams
+   const int FOOD_3_PROTEIN_P100G = 30; // in grams
+
+   // food #4 constants
+   const string FOOD_4_NAME = "rice";
+   const int FOOD_4_CALORIES_P100G =  130; // in calories
+   const double FOOD_4_DIETARY_FIBER_P100G = 0.4; // in grams
+   const double FOOD_4_SUGARS_P100G = 0.1; // in grams
+   const double FOOD_4_PROTEIN_P100G = 2.7; // in grams
+
+   // food #5 constants
+   const string FOOD_5_NAME = "lemon";
+   const int FOOD_5_CALORIES_P100G = 29; // in calories
+   const double FOOD_5_DIETARY_FIBER_P100G = 2.8; // in grams
+   const double FOOD_5_SUGARS_P100G = 2.5; // in grams
+   const double FOOD_5_PROTEIN_P100G = 1.1; // in grams
+
+   // food #6 constants
+   const string FOOD_6_NAME = "soy sauce";
+   const int FOOD_6_CALORIES_P100G = 53; // in calories
+   const double FOOD_6_DIETARY_FIBER_P100G = 0.8; // in grams
+   const double FOOD_6_SUGARS_P100G = 0.4; // in grams
+   const int FOOD_6_PROTEIN_P100G = 8; // in grams
+
+   // declare variables for calculations
+   const string INDENT = "   ";
+
+   string recipeName, numberServingsStr, userInputStr;
+   int userInputInt, numberServingsInt;
+   double totalDietFiber, totalCals, totalSugars, totalProtein;
+
+   // Initiallize accumulator variables
+   totalDietFiber = 0;
+   totalCals = 0;
+   totalSugars = 0;
+   totalProtein = 0;
+
+   // Print Menu
+   cout << "List of Supplies : " << endl;
+   cout << INDENT << "Food #1 " << FOOD_1_NAME << endl;
+   cout << INDENT << "Food #2 " << FOOD_2_NAME << endl;
+   cout << INDENT << "Food #3 " << FOOD_3_NAME << endl;
+   cout << INDENT << "Food #4 " << FOOD_4_NAME << endl;
+   cout << INDENT << "Food #5 " << FOOD_5_NAME << endl;
+   cout << INDENT << "Food #6 " << FOOD_6_NAME << endl << endl;
+
+   // Name of recipe
+   cout << "What is the name of this recipe? ";
+   getline(cin,recipeName);
+
+   // Number of servings
+   cout << "How many servings? ";
+   getline(cin,numberServingsStr);
+   istringstream(numberServingsStr) >> numberServingsInt;
+
+   // Error testing number of servings
+   if (numberServingsInt < 1) {
+      cout << "Error -- number of servings is less than 1.\n";
+      return 1;
+   }
+   if (numberServingsInt > 15) {
+      cout << "Error -- number of servings exceeded limit of 15.\n";
+      return 1;
+   }
+
+   // Food #1 ---------------------------------------------------------
+   cout << "How many grams of " << FOOD_1_NAME << "? ";
+   getline(cin,userInputStr);
+   istringstream(userInputStr) >> userInputInt;
+
+   // Update accumulators
+   totalCals += userInputInt * (FOOD_1_CALORIES_P100G / 100.);
+   totalDietFiber += userInputInt * (FOOD_1_DIETARY_FIBER_P100G / 100.);
+   totalSugars += userInputInt * (FOOD_1_SUGARS_P100G / 100.);
+   totalProtein += userInputInt * (FOOD_1_PROTEIN_P100G / 100.);
+
+   // Error testing: grams input shouldn't exceed 1500 or a negative number
+   if (userInputInt < 0) {
+      cout << "Error - negative grams detected.\n";
+      return 1;
+   }
+   if (userInputInt > 1500) {
+      cout << "Error - value exceeded limit of 1500grams.\n";
+      return 1;
+   }
+
+   // Food #2 ---------------------------------------------------------
+   cout << "How many grams of " << FOOD_2_NAME << "? ";
+   getline(cin,userInputStr);
+   istringstream(userInputStr) >> userInputInt;
+
+   // Update accumulators
+   totalCals += userInputInt * (FOOD_2_CALORIES_P100G / 100.);
+   totalDietFiber += userInputInt * (FOOD_2_DIETARY_FIBER_P100G / 100.);
+   totalSugars += userInputInt * (FOOD_2_SUGARS_P100G / 100.);
+   totalProtein += userInputInt * (FOOD_2_PROTEIN_P100G / 100.);
+
+   // Error testing: grams input shouldn't exceed 1500 or a negative number
+   if (userInputInt < 0) {
+      cout << "Error - negative grams detected.\n";
+      return 1;
+   }
+   if (userInputInt > 1500) {
+      cout << "Error - value exceeded limit of 1500grams.\n";
+      return 1;
+   }
+
+   // Food #3 ---------------------------------------------------------
+   cout << "How many grams of " << FOOD_3_NAME << "? ";
+   getline(cin,userInputStr);
+   istringstream(userInputStr) >> userInputInt;
+
+   // Update accumulators
+   totalCals += userInputInt * (FOOD_3_CALORIES_P100G / 100.);
+   totalDietFiber += userInputInt * (FOOD_3_DIETARY_FIBER_P100G / 100.);
+   totalSugars += userInputInt * (FOOD_3_SUGARS_P100G / 100.);
+   totalProtein += userInputInt * (FOOD_3_PROTEIN_P100G / 100.);
+
+   // Error testing: grams input shouldn't exceed 1500 or a negative number
+   if (userInputInt < 0) {
+      cout << "Error - negative grams detected.\n";
+      return 1;
+   }
+   if (userInputInt > 1500) {
+      cout << "Error - value exceeded limit of 1500grams.\n";
+      return 1;
+   }
+
+   // Food #4 ---------------------------------------------------------
+   cout << "How many grams of " << FOOD_4_NAME << "? ";
+   getline(cin,userInputStr);
+   istringstream(userInputStr) >> userInputInt;
+
+   // Update accumulators
+   totalCals += userInputInt * (FOOD_4_CALORIES_P100G / 100.);
+   totalDietFiber += userInputInt * (FOOD_4_DIETARY_FIBER_P100G / 100.);
+   totalSugars += userInputInt * (FOOD_4_SUGARS_P100G / 100.);
+   totalProtein += userInputInt * (FOOD_4_PROTEIN_P100G / 100.);
+
+   // Error testing: grams input shouldn't exceed 1500 or a negative number
+   if (userInputInt < 0) {
+      cout << "Error - negative grams detected.\n";
+      return 1;
+   }
+   if (userInputInt > 1500) {
+      cout << "Error - value exceeded limit of 1500grams.\n";
+      return 1;
+   }
+
+   // Food #5 ---------------------------------------------------------
+   cout << "How many grams of " << FOOD_5_NAME << "? ";
+   getline(cin,userInputStr);
+   istringstream(userInputStr) >> userInputInt;
+
+   // Update accumulators
+   totalCals += userInputInt * (FOOD_5_CALORIES_P100G / 100.);
+   totalDietFiber += userInputInt * (FOOD_5_DIETARY_FIBER_P100G / 100.);
+   totalSugars += userInputInt * (FOOD_5_SUGARS_P100G / 100.);
+   totalProtein += userInputInt * (FOOD_5_PROTEIN_P100G / 100.);
+
+   // Error testing: grams input shouldn't exceed 1500 or a negative number
+   if (userInputInt < 0) {
+      cout << "Error - negative grams detected.\n";
+      return 1;
+   }
+   if (userInputInt > 1500) {
+      cout << "Error - value exceeded limit of 1500grams.\n";
+      return 1;
+   }
+
+   // Food #6 ---------------------------------------------------------
+   cout << "How many grams of " << FOOD_6_NAME << "? ";
+   getline(cin,userInputStr);
+   istringstream(userInputStr) >> userInputInt;
+
+   // Update accumulators
+   totalCals += userInputInt * (FOOD_6_CALORIES_P100G / 100.);
+   totalDietFiber += userInputInt * (FOOD_6_DIETARY_FIBER_P100G / 100.);
+   totalSugars += userInputInt * (FOOD_6_SUGARS_P100G / 100.);
+   totalProtein += userInputInt * (FOOD_6_PROTEIN_P100G / 100.);
+
+   // Error testing: grams input shouldn't exceed 1500 or a negative number
+   if (userInputInt < 0) {
+      cout << "Error - negative grams detected.\n";
+      return 1;
+   }
+   if (userInputInt > 1500) {
+      cout << "Error - value exceeded limit of 1500grams.\n";
+      return 1;
+   }
+
+   // Last Error Testing
+   cout << "\nGood job! There's no user-input errors,"
+   << " let's continue with the results! \n";
+
+   // Calculates per servings
+   totalCals = totalCals / numberServingsInt;
+   totalDietFiber = totalDietFiber / numberServingsInt;
+   totalSugars = totalSugars / numberServingsInt;
+   totalProtein = totalProtein / numberServingsInt;
+
+   // Report results
+   cout << "\nNutritional value of " << recipeName << " per serving: " << endl;
+   cout << INDENT << "Calories: " << totalCals << endl;
+   cout << INDENT << "Dietary Fiber: " << totalDietFiber << " grams"<< endl;
+   cout << INDENT << "Sugars: " << totalSugars << " grams" << endl;
+   cout << INDENT << "Protein: " << totalProtein << " grams" <<  endl;
+
+   return 0;
+   
+}
+
+/*---------------------------paste of run 1-------------------------------------
+List of Supplies : 
+   Food #1 broccoli
+   Food #2 garlic
+   Food #3 chicken meat
+   Food #4 rice
+   Food #5 lemon
+   Food #6 soy sauce
+
+What is the name of this recipe? Diaz's Garlic Chicken
+How many servings? 4
+How many grams of broccoli? 0
+How many grams of garlic? 136
+How many grams of chicken meat? 299
+How many grams of rice? 0
+How many grams of lemon? 0
+How many grams of soy sauce? 0
+
+Good job! There's no user-input errors, let's continue with the results! 
+
+Nutritional value of Diaz's Garlic Chicken per serving: 
+   Calories: 202.402
+   Dietary Fiber: 0.714 grams
+   Sugars: 0.34 grams
+   Protein: 24.465 grams
+Program ended with exit code: 0
+ ------------------------------paste of run 2-----------------------------------
+List of Supplies : 
+   Food #1 broccoli
+   Food #2 garlic
+   Food #3 chicken meat
+   Food #4 rice
+   Food #5 lemon
+   Food #6 soy sauce
+
+What is the name of this recipe? Diaz's Asian Broccoli
+How many servings? 2
+How many grams of broccoli? 302
+How many grams of garlic? 136
+How many grams of chicken meat? 0
+How many grams of rice? 0
+How many grams of lemon? 0
+How many grams of soy sauce? 48
+
+Good job! There's no user-input errors, let's continue with the results! 
+
+Nutritional value of Diaz's Asian Broccoli per serving: 
+   Calories: 165.38
+   Dietary Fiber: 5.546 grams
+   Sugars: 3.796 grams
+   Protein: 10.53 grams
+Program ended with exit code: 0
+------------------------------paste of run 3------------------------------------
+ List of Supplies :
+   Food #1 broccoli
+   Food #2 garlic
+   Food #3 chicken meat
+   Food #4 rice
+   Food #5 lemon
+   Food #6 soy sauce
+
+What is the name of this recipe? Diaz's Meal Prep
+How many servings? 5
+How many grams of broccoli? 604
+How many grams of garlic? 136
+How many grams of chicken meat? 299
+How many grams of rice? 790
+How many grams of lemon? 0
+How many grams of soy sauce? 0
+
+Good job! There's no user-input errors, let's continue with the results! 
+
+Nutritional value of Diaz's Meal Prep per serving: 
+   Calories: 408.394
+   Dietary Fiber: 4.344 grams
+   Sugars: 2.846 grams
+   Protein: 27.462 grams
+Program ended with exit code: 0
+------------------------------paste of run 4------------------------------------
+ List of Supplies :
+   Food #1 broccoli
+   Food #2 garlic
+   Food #3 chicken meat
+   Food #4 rice
+   Food #5 lemon
+   Food #6 soy sauce
+
+What is the name of this recipe? Diaz's Lemon Chicken
+How many servings? 16
+Error -- number of servings exceeded limit of 15.
+Program ended with exit code: 1
+-----------------------------paste of run 5-------------------------------------
+ List of Supplies :
+   Food #1 broccoli
+   Food #2 garlic
+   Food #3 chicken meat
+   Food #4 rice
+   Food #5 lemon
+   Food #6 soy sauce
+
+What is the name of this recipe? Diaz's Soygarlic Chicken
+How many servings? 3
+How many grams of broccoli? 360
+How many grams of garlic? 190
+How many grams of chicken meat? 2000
+Error - value exceeded limit of 1500grams.
+Program ended with exit code: 1
+ ------------------------------end of run-------------------------------------*/
